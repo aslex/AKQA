@@ -2,8 +2,7 @@ import React, { Component } from "react";
 
 export default class Cart extends Component {
   state = {
-    items: [{}],
-    total: 0
+    items: [{}]
   };
 
   componentDidMount() {
@@ -50,7 +49,7 @@ export default class Cart extends Component {
         items: updatedItems
       },
       () => {
-        console.log("UPDTAED", this.state.items);
+        console.log("UPDTAED", this.state);
       }
     );
   };
@@ -83,19 +82,25 @@ export default class Cart extends Component {
         </tr>
       );
     });
-
+    const subtotal = [...this.state.items].reduce((acc, el) => {
+      let cost = parseFloat(el.price * el.qty);
+      return (acc += cost);
+    }, 0);
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Qty</th>
-            <th>Cost</th>
-          </tr>
-        </thead>
-        <tbody>{cartItems}</tbody>
-      </table>
+      <>
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Qty</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tbody>{cartItems}</tbody>
+        </table>
+        <h4>SUBTOTAL: {subtotal.toFixed(2)}</h4>
+      </>
     );
   }
 }
