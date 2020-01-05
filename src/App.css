@@ -40,12 +40,28 @@
 
 
 /* -------------------------------- */
+@font-face {
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Inria Serif', serif;
+  src: url("https://fonts.googleapis.com/css?family=Inria+Serif|Open+Sans&display=swap")
+}
+
 body {
   background-color: rgb(220, 220, 220);
+  font-family: 'Open Sans';
+}
+
+table {
+  font-family: "Inria Serif";
+}
+
+.intro {
+  margin-bottom: 4em;
 }
 
 .basket {
   margin: 30vh;
+
 }
 
 footer {
@@ -63,7 +79,9 @@ footer {
 
 thead {
   text-align: left;
+
 }
+
 
 tbody td {
   padding-top: 1em;
@@ -74,6 +92,42 @@ table input {
   max-width: 2.5em;
 
   text-align: center;
+}
+
+button {
+  font-size: 100%;
+  font-family: inherit;
+  background-color: inherit;
+  border: none;
+}
+
+img {
+  max-width: 20vw;
+}
+
+button img {
+  max-height: 20px;
+}
+
+tfoot.totals {
+  margin-top: 20%;
+  color: gray;
+  empty-cells: show;
+}
+
+#grand-total {
+  color: black;
+  font-weight: bold;
+}
+
+#buy-now {
+  background-color: navy;
+  height: 40px;
+  border-radius: .2em;
+  color: white;
+  font-weight: bolder;
+  margin-top: 2em;
+  transform: translate(250px, 0px);
 }
 
 footer p {
