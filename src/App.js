@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Cart from "./components/Cart";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <>
+      <div className="basket">
+        <header>
+          <h1>AKQA</h1>
+        </header>
+        <h2>Your Basket</h2>
+        <Cart />
+      </div>
+
+      <footer>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          © <strong>2013 AKQA Ltd.</strong> Registered in England
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      </footer>
+    </>
   );
 }
 

@@ -32,7 +32,50 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+/* -------------------------------- */
+body {
+  background-color: rgb(220, 220, 220);
+}
+
+.basket {
+  margin: 30vh;
+}
+
+footer {
+  width: 100vw;
+  height: 30px;
+  background-color: rgb(102, 102, 102);
+  text-align: center;
+  font-size: .8em;
+  color: white;
+}
+
+.break {
+  border: 2px solid black;
+}
+
+thead {
+  text-align: left;
+}
+
+tbody td {
+  padding-top: 1em;
+  padding-right: 0.8em;
+}
+
+table input {
+  max-width: 2.5em;
+
+  text-align: center;
+}
+
+footer p {
+  transform: translate(0, 7px);
 }
