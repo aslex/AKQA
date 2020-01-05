@@ -108,7 +108,7 @@ export default class Cart extends Component {
     }, 0);
     return (
       <>
-        <table>
+        <table cellPadding="0" cellSpacing="0">
           <thead>
             <tr id="title-row">
               <th>Product</th>
@@ -118,19 +118,19 @@ export default class Cart extends Component {
             </tr>
           </thead>
           <tbody>{cartItems}</tbody>
-       
+
           <tfoot>
             <tr>
-              <td colSpan='3'>Subtotal:</td>
+              <td colSpan="3">Subtotal</td>
               <td>£{subtotal.toFixed(2)}</td>
             </tr>
             <tr>
-              <td colSpan='3'>VAT @ 20%:</td>
+              <td colSpan="3">VAT @ 20%</td>
               <td>£{(subtotal * 0.2).toFixed(2)}</td>
             </tr>
-           
+
             <tr id="grand-total">
-              <td colSpan='3'>Total Cost:</td>
+              <td colSpan="3">Total Cost</td>
               <td>£{(subtotal * 1.2).toFixed(2)}</td>
             </tr>
           </tfoot>

@@ -53,6 +53,7 @@ body {
 
 table {
   font-family: "Inria Serif";
+  border: none;
 
 }
 
@@ -80,12 +81,17 @@ footer {
 
 thead th {
   text-align: left;
-
+  border-bottom: 1px solid rgb(180, 180, 180);
 }
 
 tbody td {
-  padding-top: .6em;
-  padding-right: 0.8em;
+  /* padding-top: .4em;
+  padding-right: 0.8em; */
+  padding: .3em;
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgb(200, 200, 200);
 }
 
 table input {
@@ -109,12 +115,12 @@ button img {
 }
 
 tfoot {
-  color: gray;
+  color: rgb(105, 105, 105);
   empty-cells: show;
 }
 
 
-tfoot::before{
+tfoot::before {
   height: 1.5em;
   display: table-row;
   content: '';
