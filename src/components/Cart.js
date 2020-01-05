@@ -76,7 +76,7 @@ export default class Cart extends Component {
               max="10"
             />
           </td>
-          <td className="cost">£{ (el.price * el.qty).toFixed(2) }</td>
+          <td className="cost">£{(el.price * el.qty).toFixed(2)}</td>
           <td className="delete">
             <img src="" alt="trash bin" />
           </td>
