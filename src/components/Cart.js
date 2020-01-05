@@ -6,7 +6,7 @@ export default class Cart extends Component {
   };
 
   componentDidMount() {
-    //   here could be a call to the backend to retrieve items in a user's cart
+    //   here put a call to the backend to retrieve items in a user's cart
     this.setState(
       {
         items: [
@@ -118,25 +118,19 @@ export default class Cart extends Component {
             </tr>
           </thead>
           <tbody>{cartItems}</tbody>
-          <br />
-          <tfoot className="totals">
+       
+          <tfoot>
             <tr>
-              <td>Subtotal:</td>
-              <td></td>
-              <td></td>
+              <td colSpan='3'>Subtotal:</td>
               <td>£{subtotal.toFixed(2)}</td>
             </tr>
             <tr>
-              <td>VAT @ 20%:</td>
-              <td></td>
-              <td></td>
+              <td colSpan='3'>VAT @ 20%:</td>
               <td>£{(subtotal * 0.2).toFixed(2)}</td>
             </tr>
-            <br />
+           
             <tr id="grand-total">
-              <td>Total Cost:</td>
-              <td></td>
-              <td></td>
+              <td colSpan='3'>Total Cost:</td>
               <td>£{(subtotal * 1.2).toFixed(2)}</td>
             </tr>
           </tfoot>

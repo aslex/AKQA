@@ -53,6 +53,7 @@ body {
 
 table {
   font-family: "Inria Serif";
+
 }
 
 .intro {
@@ -77,20 +78,18 @@ footer {
   border: 2px solid black;
 }
 
-thead {
+thead th {
   text-align: left;
 
 }
 
-
 tbody td {
-  padding-top: 1em;
+  padding-top: .6em;
   padding-right: 0.8em;
 }
 
 table input {
   max-width: 2.5em;
-
   text-align: center;
 }
 
@@ -102,22 +101,31 @@ button {
 }
 
 img {
-  max-width: 20vw;
+  max-width: 15vw;
 }
 
 button img {
   max-height: 20px;
 }
 
-tfoot.totals {
-  margin-top: 20%;
+tfoot {
   color: gray;
   empty-cells: show;
+}
+
+
+tfoot::before{
+  height: 1.5em;
+  display: table-row;
+  content: '';
 }
 
 #grand-total {
   color: black;
   font-weight: bold;
+  height: 3em;
+  display: table-row;
+  content: '';
 }
 
 #buy-now {
