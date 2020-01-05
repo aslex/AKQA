@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios'
 
 export default class Cart extends Component {
   state = {
@@ -20,7 +21,7 @@ export default class Cart extends Component {
             name: "Baseball Cap",
             size: "One Size",
             price: 2.99,
-            qty: 1
+            qty: 2
           },
           {
             name: "Swim Shorts",
@@ -62,7 +63,12 @@ export default class Cart extends Component {
     );
   };
   buyNow = event => {
-    // here write the code to handle the purchase
+    // here is the simulated backend call to make the purchase
+
+    axios.post('postURLhere', {purchase: this.state.items})
+    .then(res => {
+        console.log(res);
+    })
   };
   render() {
     const cartItems = this.state.items.map(el => {
@@ -80,7 +86,7 @@ export default class Cart extends Component {
               type="number"
               name={el.name}
               id="qty"
-              placeholder="1"
+              value={el.qty}
               min="0"
               max="10"
             />
@@ -135,9 +141,10 @@ export default class Cart extends Component {
             </tr>
           </tfoot>
         </table>
+        {this.state.items.length>0 ? 
         <button id="buy-now" type="button" onClick={this.buyNow}>
           Buy Now
-        </button>
+        </button> : <div></div>}
       </>
     );
   }
