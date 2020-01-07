@@ -4,4 +4,6 @@ This project uses React
 
 In the root directory, run 'npm start' and go to http://localhost:3000/
 
-The build folder contains the code optimized for production.
+## npm run build
+
+creates an optimized build for production
