@@ -1,4 +1,4 @@
-This project uses React
+To complete this assignment I used React and edited the code using Visual Studio Code
 
 ## npm start
 
