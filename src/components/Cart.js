@@ -8,34 +8,29 @@ export default class Cart extends Component {
   };
 
   componentDidMount() {
-    //   here put a call to the backend to retrieve items in a user's cart
-    this.setState(
-      {
-        items: [
-          {
-            name: "Cotton T-Shirt",
-            size: "Medium",
-            price: 1.99,
-            qty: 1
-          },
-          {
-            name: "Baseball Cap",
-            size: "One Size",
-            price: 2.99,
-            qty: 2
-          },
-          {
-            name: "Swim Shorts",
-            size: "Medium",
-            price: 3.99,
-            qty: 1
-          }
-        ]
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
+    /*   here you can make a call to the backend to retrieve product info and/or items in a user's cart from a previous session   */
+    this.setState({
+      items: [
+        {
+          name: "Cotton T-Shirt",
+          size: "Medium",
+          price: 1.99,
+          qty: 1
+        },
+        {
+          name: "Baseball Cap",
+          size: "One Size",
+          price: 2.99,
+          qty: 2
+        },
+        {
+          name: "Swim Shorts",
+          size: "Medium",
+          price: 3.99,
+          qty: 1
+        }
+      ]
+    });
   }
   handleDelete = event => {
     console.log("handle delete! ", event.target.name);
@@ -54,19 +49,13 @@ export default class Cart extends Component {
       return el;
     });
 
-    this.setState(
-      {
-        items: updatedItems
-      },
-      () => {
-        console.log("UPDTAED", this.state);
-      }
-    );
+    this.setState({
+      items: updatedItems
+    });
   };
 
   buyNow = event => {
     event.preventDefault();
-
 
     // here is the simulated backend call to make the purchase
     /*
