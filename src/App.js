@@ -9,7 +9,10 @@ function App() {
       <div className="basket">
         <header>
           {(
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/AKQA-Logo.svg" />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/3/30/AKQA-Logo.svg"
+              alt="AKQA logo"
+            />
           ) || <h1>AKQA</h1>}
         </header>
         <div className="intro">
