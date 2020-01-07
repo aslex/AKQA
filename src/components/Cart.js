@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import axios from 'axios'
+import axios from "axios";
 
 export default class Cart extends Component {
   state = {
-    items: [{}]
+    items: [{}],
+    purchaseSuccess: false
   };
 
   componentDidMount() {
@@ -62,20 +63,37 @@ export default class Cart extends Component {
       }
     );
   };
-  buyNow = event => {
-    // here is the simulated backend call to make the purchase
 
-    axios.post('postURLhere', {purchase: this.state.items})
+  buyNow = event => {
+    event.preventDefault();
+
+
+    // here is the simulated backend call to make the purchase
+    /*
+    axios.post('postURLhere', {order: this.state.items})
     .then(res => {
-        console.log(res);
+        if(res){
+          this.setState({
+            purchaseSuccess: true
+          })
+        }
+    }).catch(err => {
+      console.log(err);
     })
+    */
+
+    // assume the puchase is successfull:
+    this.setState({
+      purchaseSuccess: true
+    });
   };
+
   render() {
     const cartItems = this.state.items.map(el => {
       return (
         <tr key={el.name}>
           <td id="item">
-            <label htmlFor="qty">
+            <label name={el.name} htmlFor="qty">
               {el.name}, {el.size}
             </label>
           </td>
@@ -114,37 +132,44 @@ export default class Cart extends Component {
     }, 0);
     return (
       <>
-        <table cellPadding="0" cellSpacing="0">
-          <thead>
-            <tr id="title-row">
-              <th>Product</th>
-              <th>Price</th>
-              <th>Qty</th>
-              <th>Cost</th>
-            </tr>
-          </thead>
-          <tbody>{cartItems}</tbody>
+        {this.state.purchaseSuccess ? (
+          <div className="success">We have received your order!</div>
+        ) : (
+          <table cellPadding="0" cellSpacing="0">
+            <thead>
+              <tr id="title-row">
+                <th>Product</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Cost</th>
+              </tr>
+            </thead>
+            <tbody>{cartItems}</tbody>
 
-          <tfoot>
-            <tr>
-              <td colSpan="3">Subtotal</td>
-              <td>£{subtotal.toFixed(2)}</td>
-            </tr>
-            <tr>
-              <td colSpan="3">VAT @ 20%</td>
-              <td>£{(subtotal * 0.2).toFixed(2)}</td>
-            </tr>
+            <tfoot>
+              <tr>
+                <td colSpan="3">Subtotal</td>
+                <td>£{subtotal.toFixed(2)}</td>
+              </tr>
+              <tr>
+                <td colSpan="3">VAT @ 20%</td>
+                <td>£{(subtotal * 0.2).toFixed(2)}</td>
+              </tr>
 
-            <tr id="grand-total">
-              <td colSpan="3">Total Cost</td>
-              <td>£{(subtotal * 1.2).toFixed(2)}</td>
-            </tr>
-          </tfoot>
-        </table>
-        {this.state.items.length>0 ? 
-        <button id="buy-now" type="button" onClick={this.buyNow}>
-          Buy Now
-        </button> : <div></div>}
+              <tr id="grand-total">
+                <td colSpan="3">Total Cost</td>
+                <td>£{(subtotal * 1.2).toFixed(2)}</td>
+              </tr>
+            </tfoot>
+          </table>
+        )}
+        {this.state.items.length > 0 && !this.state.purchaseSuccess ? (
+          <button id="buy-now" type="submit" onClick={this.buyNow}>
+            Buy Now
+          </button>
+        ) : (
+          <div></div>
+        )}
       </>
     );
   }
